@@ -54,9 +54,7 @@ $ OAUTH_TOKEN=****** npm run contributor
 
 `encodeURIComponent('xudafeng@126.com')` will be convert to `xudafeng%40126.com`, please replace to test it.
 
-<p style='color:red'>This is some red text.</p>
-
-https://api.github.com/search/users?q=<span style="color: red">xudafeng%40126.com</span>%20in%3Aemail%20type%3Auser
+https://api.github.com/search/users?q=`xudafeng%40126.com`%20in%3Aemail%20type%3Auser
 
 <!-- GITCONTRIBUTOR_START -->
 
