@@ -50,6 +50,17 @@ $ npm run contributor
 $ OAUTH_TOKEN=****** npm run contributor
 ```
 
+<!-- GITCONTRIBUTOR_START -->
+
+## Contributors
+
+|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>
+| :---: |
+
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor.git), auto upated at `Sun Mar 25 2018 15:15:41 GMT+0800`.
+
+<!-- GITCONTRIBUTOR_END -->
+
 ## License
 
 The MIT License (MIT)
