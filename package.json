@@ -1,0 +1,40 @@
+{
+  "name": "git-contributor",
+  "version": "1.0.0",
+  "description": "git-contributor",
+  "keywords": [
+    "contributor"
+  ],
+  "bin": {
+    "git-contributor": "./bin/git-contributor"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xudafeng/git-contributor.git"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "commander": "^2.15.1",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
+    "xutil": "^1.0.11"
+  },
+  "devDependencies": {
+    "co-mocha": "*",
+    "eslint": "*",
+    "eslint-plugin-mocha": "^4.11.0",
+    "mocha": "*",
+    "istanbul": "*",
+    "pre-commit": "*"
+  },
+  "scripts": {
+    "ci": "npm run lint && npm run test",
+    "test": "istanbul cover `npm bin`/_mocha",
+    "lint": "eslint . --fix"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "license": "MIT"
+}
