@@ -17,17 +17,37 @@
 [download-image]: https://img.shields.io/npm/dm/git-contributor.svg?style=flat-square
 [download-url]: https://npmjs.org/package/git-contributor
 
-> git-contributor
+> Welcome to join in and feel free to contribute.
 
 ## Spec
 
 - The listings show recently contributors.
-- More on the way.
+- Sort by commit date.
+- Auto generate from git info.
 
 ## Installment
 
 ```bash
 $ npm i git-contributor --save-dev
+```
+
+```json
+"devDependencies": {
+  ...
+  "git-contributor": "*",
+  ...
+},
+"scripts": {
+  ...
+  "contributor": "git-contributor",
+  ...
+}
+```
+
+```bash
+$ npm run contributor
+# github API service limit
+$ OAUTH_TOKEN=****** npm run contributor
 ```
 
 ## License

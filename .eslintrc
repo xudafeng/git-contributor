@@ -8,6 +8,7 @@
   "plugins": [
     "mocha"
   ],
+  "parser": "babel-eslint",
   // https://github.com/feross/eslint-config-standard
   "rules": {
     "accessor-pairs": 2,
