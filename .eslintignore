@@ -1,6 +1,4 @@
 **/.*
 **/node_modules
-**/dist
-**/assets
-**/build
+**/coverage
 **/test

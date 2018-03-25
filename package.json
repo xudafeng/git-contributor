@@ -22,17 +22,19 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
+    "babel-register": "^6.26.0",
     "co-mocha": "*",
     "eslint": "*",
     "eslint-plugin-mocha": "^4.11.0",
-    "istanbul": "*",
     "mocha": "*",
+    "nyc": "^11.6.0",
     "pre-commit": "*"
   },
   "scripts": {
     "ci": "npm run lint && npm run test",
-    "test": "istanbul cover `npm bin`/_mocha",
-    "lint": "eslint . --fix"
+    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "lint": "eslint . --fix",
+    "contributor": "./bin/git-contributor"
   },
   "pre-commit": [
     "lint"
