@@ -1,6 +1,6 @@
 {
   "name": "git-contributor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "git-contributor",
   "keywords": [
     "contributor"
@@ -11,8 +11,9 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xudafeng/git-contributor.git"
+    "url": "git@github.com:xudafeng/git-contributor.git"
   },
+  "homepage": "https://github.com/xudafeng/git-contributor",
   "dependencies": {
     "bluebird": "^3.5.1",
     "commander": "^2.15.1",
