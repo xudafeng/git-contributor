@@ -21,9 +21,13 @@
 
 ## Spec
 
-- The listings show recently contributors.
-- Sort by commit date.
+- The listings show all the contributors.
+- Sort by contributions number.
+
+If there is no `repository` field, fall back to the rule:
+
 - Auto generate from git info.
+- Sort by commit date.
 
 ## Installment
 
