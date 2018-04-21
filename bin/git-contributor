@@ -13,15 +13,17 @@ const pkg = require('../package.json');
 
 program
   .option('-m, --markdown', 'auto parse and update README.md')
-  .option('-p, --print',    'render markdown file with pdf style')
-  .option('-v, --versions', 'output version infomation');
+  .option('-p, --print',    'render markdown file')
+  .option('-u, --url <s>',  `point the github repo's url`)
+  .option('-v, --versions', 'output version infomation')
+  .parse(process.argv);
 
 const options = Object.assign({
   markdown: true,
   print: true
 }, program);
 
-gen.getAuthor()
+gen.getAuthor(options)
   .then(list => {
     const res = gen.genMarkDown(list);
     if (options.markdown) {
