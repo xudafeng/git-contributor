@@ -12,4 +12,15 @@ describe('test', () => {
       done();
     });
   });
+
+  it('should handle more than 12 authors', (done) => {
+    contributor.getAuthor({
+      cwd: '/',
+      url: 'git://github.com/macacajs/macacajs.github.io.git'
+    }).then(list => {
+      const res = contributor.genMarkDown(list);
+      assert.equal(res.content.split('|\n').length >= 4, true);
+      done();
+    });
+  });
 });
