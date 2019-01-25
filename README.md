@@ -19,6 +19,18 @@
 
 > Welcome to join in and feel free to contribute.
 
+<!-- GITCONTRIBUTOR_START -->
+
+## Contributors
+
+|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars3.githubusercontent.com/u/1209810?v=4" width="100px;"/><br/><sub><b>paradite</b></sub>](https://github.com/paradite)<br/>
+| :---: | :---: |
+
+
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Fri Jan 25 2019 17:15:45 GMT+0800`.
+
+<!-- GITCONTRIBUTOR_END -->
+
 ## Spec
 
 - The listings show all the contributors.
@@ -61,18 +73,6 @@ $ OAUTH_TOKEN=****** npm run contributor
 ```
 https://api.github.com/search/users?q=xudafeng%40126.com%20in%3Aemail%20type%3Auser
 ```
-
-<!-- GITCONTRIBUTOR_START -->
-
-## Contributors
-
-|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>
-| :---: |
-
-
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor.git), auto upated at `Sun Mar 25 2018 15:45:51 GMT+0800`.
-
-<!-- GITCONTRIBUTOR_END -->
 
 ## License
 
