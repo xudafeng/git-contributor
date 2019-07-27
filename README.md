@@ -31,6 +31,20 @@ This project follows the git-contributor [spec](https://github.com/xudafeng/git-
 
 <!-- GITCONTRIBUTOR_END -->
 
+## Who are using
+
+- ⭐⭐⭐[antvis/g2](//github.com/antvis/g2)
+- ⭐⭐⭐[cnpm/npminstall](//github.com/cnpm/npminstall)
+- ⭐⭐⭐[alibaba/f2etest](//github.com/alibaba/f2etest)
+- ⭐⭐⭐[alibaba/uirecorder](//github.com/alibaba/uirecorder)
+- ⭐⭐⭐[hiloteam/Hilo](//github.com/hiloteam/Hilo)
+- ⭐⭐⭐[node-modules/detect-port](//github.com/node-modules/detect-port)
+- ⭐⭐⭐[node-modules/utility](//github.com/node-modules/utility)
+- ⭐⭐⭐[node-modules/urllib](//github.com/node-modules/urllib)
+- ⭐⭐⭐[macacajs/macaca-datahub](//github.com/macacajs/macaca-datahub)
+
+[For more](//github.com/xudafeng/git-contributor/network/dependents)
+
 ## Spec
 
 - The listings show all the contributors.
