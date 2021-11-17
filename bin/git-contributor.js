@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 'use strict';
 
 const fs = require('fs');
@@ -9,12 +7,10 @@ const program = require('commander');
 
 const gen = require('../lib/git-contributor');
 
-const pkg = require('../package.json');
-
 program
   .option('-m, --markdown', 'auto parse and update README.md')
-  .option('-p, --print',    'render markdown file')
-  .option('-u, --url <s>',  `point the github repo's url`)
+  .option('-p, --print', 'render markdown file')
+  .option('-u, --url <s>', 'point the github repo\'s url')
   .option('-v, --versions', 'output version infomation')
   .parse(process.argv);
 

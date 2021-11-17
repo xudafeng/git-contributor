@@ -1,13 +1,17 @@
 {
   "name": "git-contributor",
   "version": "1.0.10",
-  "description": "git-contributor",
+  "description": "git contributor",
   "keywords": [
     "contributor"
   ],
   "bin": {
-    "git-contributor": "./bin/git-contributor"
+    "git-contributor": "./bin/git-contributor.js"
   },
+  "files": [
+    "bin/**/*.js",
+    "lib/**/*.js"
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
