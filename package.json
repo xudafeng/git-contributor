@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
-    "babel-register": "^6.26.0",
     "co-mocha": "*",
     "eslint": "*",
     "eslint-plugin-mocha": "^4.11.0",
