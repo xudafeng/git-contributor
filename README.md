@@ -6,15 +6,15 @@
 [![node version][node-image]][node-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/git-contributor.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/git-contributor.svg
 [npm-url]: https://npmjs.org/package/git-contributor
-[travis-image]: https://img.shields.io/travis/xudafeng/git-contributor.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/xudafeng/git-contributor.svg
 [travis-url]: https://travis-ci.org/xudafeng/git-contributor
-[coveralls-image]: https://img.shields.io/coveralls/xudafeng/git-contributor.svg?style=flat-square
+[coveralls-image]: https://img.shields.io/coveralls/xudafeng/git-contributor.svg
 [coveralls-url]: https://coveralls.io/r/xudafeng/git-contributor?branch=master
-[node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node.js-%3E=_8-green.svg
 [node-url]: http://nodejs.org/download/
-[download-image]: https://img.shields.io/npm/dm/git-contributor.svg?style=flat-square
+[download-image]: https://img.shields.io/npm/dm/git-contributor.svg
 [download-url]: https://npmjs.org/package/git-contributor
 
 > Welcome to join in and feel free to contribute.
@@ -23,11 +23,11 @@
 
 ## Contributors
 
-|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars3.githubusercontent.com/u/1209810?v=4" width="100px;"/><br/><sub><b>paradite</b></sub>](https://github.com/paradite)<br/>|
+|[<img src="https://avatars.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars.githubusercontent.com/u/1209810?v=4" width="100px;"/><br/><sub><b>paradite</b></sub>](https://github.com/paradite)<br/>|
 | :---: | :---: |
 
 
-This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Fri Jan 25 2019 22:17:59 GMT+0800`.
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto updated at `Thu Nov 18 2021 01:33:21 GMT+0800`.
 
 <!-- GITCONTRIBUTOR_END -->
 
