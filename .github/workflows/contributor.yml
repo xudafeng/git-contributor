@@ -1,7 +1,7 @@
 name: Generate contributors
 
 on:
-  push:
+  pull_request:
     branches: [ master ]
 
 jobs:
@@ -29,6 +29,9 @@ jobs:
 
     - name: check for changes
       run: git status
+      
+    - name: checkout work branch
+      run: git checkout -b contributor
 
     - name: stage changed files
       run: git add .
@@ -37,4 +40,4 @@ jobs:
       run: git commit -m "generate contributor by git-contributor"
 
     - name: push code repository
-      run: git push origin ${{github.ref}}
+      run: git push origin contributor
