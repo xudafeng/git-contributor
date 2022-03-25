@@ -2,7 +2,7 @@ name: Generate contributors
 
 on:
   push:
-    branches: [ ci ]
+    branches: [ master ]
 
 jobs:
   generate:
