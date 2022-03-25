@@ -1,0 +1,40 @@
+name: Generate contributors
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  generate:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+        email: ['1581446178@qq.com']
+        name: ['ChelesteWang']
+        
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - run: npx git-contributor
+
+    - name: config git
+      run: git config --global user.email ${{ matrix.email }} &&git config --global user.name ${{ matrix.name }}
+
+    - name: check for changes
+      run: git status
+      
+    - name: stage changed files
+      run: git add .
+
+    - name: commit changed files
+      run: git commit -m "generate contributor by git-contributor"
+      
+    - name: push code to master
+      run: git push origin ${{github.ref}}
