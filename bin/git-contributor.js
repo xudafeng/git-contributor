@@ -25,17 +25,20 @@ gen.getAuthor(options)
   .then(list => {
     const res = gen.genMarkDown(list);
     if (options.markdown) {
-      const readmeFile = path.join(process.cwd(), 'README.md');
-      if (_.isExistedFile(readmeFile)) {
-        let readmeContent = fs.readFileSync(readmeFile, 'utf8');
-        const reg = new RegExp(`${res.startToken}[^]*${res.endToken}`);
-        if (reg.test(readmeContent)) {
-          readmeContent = readmeContent.replace(reg, res.content);
-        } else {
-          readmeContent += res.content;
+      const readmes = [ 'README.md', 'readme.md', 'README.zh-CN.md' ];
+      readmes.forEach(readmeName => {
+        const readmeFile = path.join(process.cwd(), readmeName);
+        if (_.isExistedFile(readmeFile)) {
+          let readmeContent = fs.readFileSync(readmeFile, 'utf8');
+          const reg = new RegExp(`${res.startToken}[^]*${res.endToken}`);
+          if (reg.test(readmeContent)) {
+            readmeContent = readmeContent.replace(reg, res.content);
+          } else {
+            readmeContent += res.content;
+          }
+          fs.writeFileSync(readmeFile, readmeContent);
         }
-        fs.writeFileSync(readmeFile, readmeContent);
-      }
+      });
     }
     if (options.print) {
       console.log(res.content);
