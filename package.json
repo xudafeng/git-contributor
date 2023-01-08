@@ -20,29 +20,29 @@
   },
   "homepage": "https://github.com/xudafeng/git-contributor",
   "dependencies": {
-    "bluebird": "^3.5.1",
     "commander": "^2.15.1",
-    "request": "^2.85.0",
-    "request-promise": "^4.2.2",
+    "urllib": "^3.10.0",
     "xutil": "^1.0.11"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
-    "co-mocha": "*",
+    "c8": "^7.12.0",
     "eslint": "*",
     "eslint-plugin-mocha": "^4.11.0",
-    "mocha": "*",
-    "nyc": "^11.6.0",
+    "mocha": "^10.2.0",
     "pre-commit": "*"
   },
   "scripts": {
     "ci": "npm run lint && npm run test",
-    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "test": "c8 --reporter=lcov --reporter=text mocha",
     "lint": "eslint . --fix",
-    "contributor": "./bin/git-contributor"
+    "contributor": "./bin/git-contributor.js"
   },
   "pre-commit": [
     "lint"
   ],
+  "engines": {
+    "node": ">= 14.17.0"
+  },
   "license": "MIT"
 }
