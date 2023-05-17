@@ -3,7 +3,6 @@
 'use strict';
 
 const fs = require('fs');
-const _ = require('xutil');
 const path = require('path');
 const program = require('commander');
 
@@ -21,15 +20,19 @@ const options = Object.assign({
   print: true
 }, program);
 
+const cwd = process.cwd();
+
 gen.getAuthor(options)
   .then(list => {
-    const res = gen.genMarkDown(list);
     if (options.markdown) {
-      const readmes = [ 'README.md', 'readme.md', 'README.zh-CN.md' ];
-      readmes.forEach(readmeName => {
-        const readmeFile = path.join(process.cwd(), readmeName);
-        if (_.isExistedFile(readmeFile)) {
+      fs.readdirSync(cwd)
+        .filter(item => {
+          return path.extname(item) === '.md' && item.toLocaleLowerCase().includes('readme');
+        })
+        .map(item => path.resolve(cwd, item))
+        .map(readmeFile => {
           let readmeContent = fs.readFileSync(readmeFile, 'utf8');
+          const res = gen.genMarkDown(list, readmeContent);
           const reg = new RegExp(`${res.startToken}[^]*${res.endToken}`);
           if (reg.test(readmeContent)) {
             readmeContent = readmeContent.replace(reg, res.content);
@@ -37,11 +40,10 @@ gen.getAuthor(options)
             readmeContent += res.content;
           }
           fs.writeFileSync(readmeFile, readmeContent);
-        }
-      });
-    }
-    if (options.print) {
-      console.log(res.content);
+          if (options.print) {
+            console.log(res.content);
+          }
+        });
     }
   })
   .catch(e => {
