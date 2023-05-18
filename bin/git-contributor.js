@@ -27,19 +27,22 @@ gen.getAuthor(options)
     if (options.markdown) {
       fs.readdirSync(cwd)
         .filter(item => {
-          return path.extname(item) === '.md' && item.toLocaleLowerCase().includes('readme');
+          return path.extname(item) === '.md' && item.toLowerCase().includes('readme');
         })
         .map(item => path.resolve(cwd, item))
         .map(readmeFile => {
           let readmeContent = fs.readFileSync(readmeFile, 'utf8');
-          const res = gen.genMarkDown(list, readmeContent);
+          const res = gen.genMarkDown(list.slice(), readmeContent);
           const reg = new RegExp(`${res.startToken}[^]*${res.endToken}`);
+
           if (reg.test(readmeContent)) {
             readmeContent = readmeContent.replace(reg, res.content);
           } else {
             readmeContent += res.content;
           }
+
           fs.writeFileSync(readmeFile, readmeContent);
+
           if (options.print) {
             console.log(res.content);
           }

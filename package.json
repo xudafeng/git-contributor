@@ -1,6 +1,6 @@
 {
   "name": "git-contributor",
-  "version": "2.1.2",
+  "version": "2.1.5",
   "description": "git contributor",
   "keywords": [
     "contributor"
@@ -41,8 +41,5 @@
   "pre-commit": [
     "lint"
   ],
-  "engines": {
-    "node": ">= 14.17.0"
-  },
   "license": "MIT"
 }
