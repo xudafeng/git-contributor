@@ -1,0 +1,13 @@
+octocat
+hubot
+defunkt
+mojombo
+torvalds
+gaearon
+yyx990803
+tj
+sindresorhus
+substack
+addyosmani
+kentcdodds
+getify

@@ -78,6 +78,7 @@ $ npm i git-contributor --save-dev
 $ npm run contributor
 # github API service limit
 $ OAUTH_TOKEN=****** npm run contributor
+$ git-contributor --owners OWNERS.md
 ```
 
 ### Searching Sample

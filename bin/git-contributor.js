@@ -12,6 +12,7 @@ program
   .option('-m, --markdown', 'auto parse and update README.md')
   .option('-p, --print', 'render markdown file')
   .option('-u, --url <s>', 'point the github repo\'s url')
+  .option('-o, --owners <s>', 'read fixed contributor list from file')
   .option('-v, --versions', 'output version infomation')
   .parse(process.argv);
 
