@@ -36,7 +36,7 @@
     "ci": "npm run lint && npm run test",
     "test": "c8 --reporter=lcov --reporter=text mocha",
     "lint": "eslint . --fix",
-    "contributor": "./bin/git-contributor.js"
+    "contributor": "./bin/git-contributor.js --owners owners.txt"
   },
   "pre-commit": [
     "lint"
