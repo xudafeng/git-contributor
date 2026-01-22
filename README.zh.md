@@ -19,7 +19,7 @@
 支持通过 `--owners` 参数读取本地的贡献人列表文件（每行一个 GitHub login），并追加到生成的贡献者列表中，例如：
 
 ```bash
-git-contributor --owners OWNERS.md
+$ git-contributor --owners OWNERS.md
 ```
 
 ## 贡献者
