@@ -231,6 +231,63 @@ describe('git-contributor', () => {
     ]);
   });
 
+  it('deduplicates authors when using owners file', async () => {
+    const cwd = makeTempDir();
+    const ownersPath = path.join(cwd, 'owners.txt');
+    // Create owners file with a user that will also be returned by API
+    fs.writeFileSync(ownersPath, 'alpha\nbeta\n');
+
+    const request = async (uri) => {
+      return {
+        data: [
+          {
+            login: 'alpha', // This user is in both API and owners file
+            avatar_url: 'avatar-a-api',
+            html_url: 'html-a'
+          },
+          {
+            login: 'gamma',
+            avatar_url: 'avatar-g',
+            html_url: 'html-g'
+          }
+        ]
+      };
+    };
+
+    const contributor = loadContributor({
+      request,
+      isExistedFile: filePath => filePath === ownersPath,
+      isExistedDir: () => false
+    });
+
+    const list = await contributor.getAuthor({
+      cwd,
+      url: 'https://github.com/foo/bar',
+      owners: 'owners.txt'
+    });
+
+    // Should have 3 users (alpha, gamma from API, beta from owners)
+    // alpha should appear only once (not duplicated)
+    assert.equal(list.length, 3);
+    assert.deepEqual(list, [
+      {
+        login: 'alpha',
+        avatar_url: 'avatar-a-api', // Should keep the first occurrence (API version)
+        html_url: 'html-a'
+      },
+      {
+        login: 'gamma',
+        avatar_url: 'avatar-g',
+        html_url: 'html-g'
+      },
+      {
+        login: 'beta',
+        avatar_url: 'https://avatars.githubusercontent.com/beta?v=4',
+        html_url: 'https://github.com/beta'
+      }
+    ]);
+  });
+
   it('generates markdown for english and chinese content', () => {
     const contributor = loadContributor();
     const list = [
