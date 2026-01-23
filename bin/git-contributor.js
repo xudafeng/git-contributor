@@ -13,6 +13,7 @@ program
   .option('-p, --print', 'render markdown file')
   .option('-u, --url <s>', 'point the github repo\'s url')
   .option('-o, --owners <s>', 'read fixed contributor list from file')
+  .option('-s, --size <size>', 'avatar size: large(100px), medium(80px), small(60px)', 'medium')
   .option('-v, --versions', 'output version infomation')
   .parse(process.argv);
 
@@ -33,7 +34,7 @@ gen.getAuthor(options)
         .map(item => path.resolve(cwd, item))
         .map(readmeFile => {
           let readmeContent = fs.readFileSync(readmeFile, 'utf8');
-          const res = gen.genMarkDown(list.slice(), readmeContent);
+          const res = gen.genMarkDown(list.slice(), readmeContent, { size: options.size });
           const reg = new RegExp(`${res.startToken}[^]*${res.endToken}`);
 
           if (reg.test(readmeContent)) {
