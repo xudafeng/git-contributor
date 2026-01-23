@@ -266,24 +266,85 @@ describe('git-contributor', () => {
       owners: 'owners.txt'
     });
 
-    // Should have 3 users (alpha, gamma from API, beta from owners)
+    // Should have 3 users with owners taking priority
     // alpha should appear only once (not duplicated)
+    // Order: owners first (alpha, beta), then contributors not in owners (gamma)
     assert.equal(list.length, 3);
     assert.deepEqual(list, [
       {
         login: 'alpha',
-        avatar_url: 'avatar-a-api', // Should keep the first occurrence (API version)
-        html_url: 'html-a'
-      },
-      {
-        login: 'gamma',
-        avatar_url: 'avatar-g',
-        html_url: 'html-g'
+        avatar_url: 'https://avatars.githubusercontent.com/alpha?v=4', // Should keep owners version
+        html_url: 'https://github.com/alpha'
       },
       {
         login: 'beta',
         avatar_url: 'https://avatars.githubusercontent.com/beta?v=4',
         html_url: 'https://github.com/beta'
+      },
+      {
+        login: 'gamma',
+        avatar_url: 'avatar-g',
+        html_url: 'html-g'
+      }
+    ]);
+  });
+
+  it('filters out bot users', async () => {
+    const request = async (uri) => {
+      return {
+        data: [
+          {
+            login: 'realuser',
+            avatar_url: 'avatar-r',
+            html_url: 'html-r'
+          },
+          {
+            login: 'github-actions[bot]',
+            avatar_url: 'avatar-bot1',
+            html_url: 'html-bot1'
+          },
+          {
+            login: 'dependabot[bot]',
+            avatar_url: 'avatar-bot2',
+            html_url: 'html-bot2'
+          },
+          {
+            login: 'renovate[bot]',
+            avatar_url: 'avatar-bot3',
+            html_url: 'html-bot3'
+          },
+          {
+            login: 'anotheruser',
+            avatar_url: 'avatar-a',
+            html_url: 'html-a'
+          }
+        ]
+      };
+    };
+
+    const contributor = loadContributor({
+      request,
+      isExistedFile: () => false,
+      isExistedDir: () => false
+    });
+
+    const list = await contributor.getAuthor({
+      cwd: makeTempDir(),
+      url: 'https://github.com/foo/bar'
+    });
+
+    // Should only have real users, bot users filtered out
+    assert.equal(list.length, 2);
+    assert.deepEqual(list, [
+      {
+        login: 'realuser',
+        avatar_url: 'avatar-r',
+        html_url: 'html-r'
+      },
+      {
+        login: 'anotheruser',
+        avatar_url: 'avatar-a',
+        html_url: 'html-a'
       }
     ]);
   });
